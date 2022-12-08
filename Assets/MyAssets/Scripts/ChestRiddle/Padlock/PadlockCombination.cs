@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.MixedReality.Toolkit.UI.BoundsControl;
 using UnityEngine;
 
 public class PadlockCombination : MonoBehaviour
@@ -10,9 +11,11 @@ public class PadlockCombination : MonoBehaviour
 
     private Vector3 initialPosition;
     private char charSelected;
+    private BoundsControl boundsControl;
 
     private void Awake()
     {
+        boundsControl = GetComponent<BoundsControl>();
         charSelected = charsOrder[0];
         initialPosition = transform.forward;
     }
@@ -20,6 +23,11 @@ public class PadlockCombination : MonoBehaviour
     public char GetCharSelected()
     {
         return charSelected;
+    }
+
+    public void StopManipulation()
+    {
+        boundsControl.enabled = false;
     }
 
     public void CalculateChar()
