@@ -11,8 +11,8 @@ public class InventorySlot : MonoBehaviour
     public Transform inventoryObjectSpawn;
 
     private bool available = true;
-    private InventoryObject inventoryObject;
-    private GameObject instantiatedObject;
+    private CollectableObject collectableObject;
+    private InventoryMovableObject inventoryMovableObject;
 
     public bool CheckAvailable()
     {
@@ -23,33 +23,38 @@ public class InventorySlot : MonoBehaviour
     {
         if (available) return;
 
-        if (!instantiatedObject)
-        {
-            instantiatedObject = Instantiate(inventoryObject.prefab, inventoryObjectSpawn.transform.position, inventoryObjectSpawn.transform.rotation, inventoryObjectSpawn);
-            instantiatedObject.GetComponent<InventoryMovableObject>().SetSlot(this);
-        }
-        else instantiatedObject.SetActive(true);
+        collectableObject.transform.parent = inventoryObjectSpawn.transform;
+        inventoryMovableObject.ResetPosition();
+
+        inventoryMovableObject.SetSlot(this);
+
+        collectableObject.gameObject.SetActive(true);
+
+        collectableObject.ActiveCollect(false);
+        inventoryMovableObject.ActiveManipulator(true);
 
         OpenInventoryObjectWindow(true);
     }
 
     public void HideObject()
     {
-        if(instantiatedObject) instantiatedObject.SetActive(false);
+        if(collectableObject) collectableObject.gameObject.SetActive(false);
     }
 
-    public void SetInventoryObject(InventoryObject inventoryObject)
+    public void SetInventoryObject(CollectableObject collectableObject)
     {
-        this.inventoryObject = inventoryObject;
+        this.collectableObject = collectableObject;
+        inventoryMovableObject = collectableObject.GetComponent<InventoryMovableObject>();
 
-        slotImage.sprite = inventoryObject.icon;
+        slotImage.sprite = collectableObject.sprite;
         slotImage.gameObject.SetActive(true);
         available = false;
     }
 
     public void RemoveInventoryObject()
     {
-        inventoryObject = null;
+        collectableObject = null;
+        inventoryMovableObject = null;
 
         slotImage.sprite = null;
         slotImage.gameObject.SetActive(false);

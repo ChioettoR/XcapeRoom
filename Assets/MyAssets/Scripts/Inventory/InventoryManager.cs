@@ -12,20 +12,20 @@ public class InventoryManager : MonoBehaviour
         foreach (InventorySlot inventorySlot in slots) inventorySlot.HideObject();
     }
 
-    public void AddItem(InventoryObject inventoryObject)
+    public void AddItem(CollectableObject collectableObject)
     {
         for (int i = 0; i < slots.Count; i++)
         {
             if (slots[i].CheckAvailable())
             {
-                AddObjectToInventory(inventoryObject, slots[i]);
+                AddObjectToInventory(collectableObject, slots[i]);
                 break;
             }
         }
     }
 
-    private void AddObjectToInventory(InventoryObject inventoryObject, InventorySlot inventorySlot)
+    private void AddObjectToInventory(CollectableObject collectableObject, InventorySlot inventorySlot)
     {
-        inventorySlot.SetInventoryObject(inventoryObject);
+        inventorySlot.SetInventoryObject(collectableObject);
     }
 }

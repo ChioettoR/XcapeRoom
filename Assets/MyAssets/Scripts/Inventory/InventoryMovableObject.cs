@@ -6,24 +6,28 @@ using UnityEngine;
 public class InventoryMovableObject : MonoBehaviour
 {
     public string objectTag;
-
-    private Vector3 initialTransformPosition;
-    private Quaternion initialTransformRotation;
+    public bool canBeRemoved;
+    public Vector3 parentRotation;
+    public AgnusCombination agnusCombination;
 
     private bool correctPosition = false;
     private Transform parentPosition;
     private ObjectManipulator objectManipolator;
     private InventorySlot inventorySlot;
+    private CollectableObject collectableObject;
+    private MultipleDockZone enteredZone;
 
     private void Awake()
     {
         objectManipolator = GetComponent<ObjectManipulator>();
+        collectableObject = GetComponent<CollectableObject>();
+
+        objectManipolator.enabled = false;
     }
 
-    private void OnEnable()
+    public void ActiveManipulator(bool active)
     {
-        initialTransformPosition = transform.position;
-        initialTransformRotation = transform.rotation;
+        objectManipolator.enabled = active;
     }
 
     public void SetSlot(InventorySlot inventorySlot)
@@ -31,8 +35,9 @@ public class InventoryMovableObject : MonoBehaviour
         this.inventorySlot = inventorySlot;
     }
 
-    public void EnteredCorrectPosition(Transform parentPosition)
+    public void EnteredCorrectPosition(Transform parentPosition, MultipleDockZone multipleDockZone)
     {
+        enteredZone = multipleDockZone;
         this.parentPosition = parentPosition;
         correctPosition = true;
     }
@@ -50,20 +55,36 @@ public class InventoryMovableObject : MonoBehaviour
         {
             SetParent();
             inventorySlot.RemoveInventoryObject();
+
+            enteredZone.Taken(true);
+
+            if (enteredZone.correctObjectTag.Equals(objectTag)) agnusCombination.Correct();
         }
     }
 
-    private void ResetPosition()
+    public void CollectedAgain()
     {
-        transform.SetPositionAndRotation(initialTransformPosition, initialTransformRotation);
+        if (enteredZone)
+        {
+            enteredZone.Taken(false);
+            if (enteredZone.correctObjectTag.Equals(objectTag)) agnusCombination.CorrectRemoved();
+        }
+    }
+
+    public void ResetPosition()
+    {
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.Euler(parentRotation);
     }
 
     private void SetParent()
     {
         objectManipolator.enabled = false;
 
-        transform.parent = parentPosition;
-        transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.identity;
+        transform.parent = null;
+        transform.position = parentPosition.position;
+        transform.rotation = parentPosition.rotation;
+
+        if (canBeRemoved) collectableObject.ActiveCollect(true);
     }
 }
