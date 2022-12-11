@@ -346,7 +346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44a91711801cf45d1b97e08d74b59e97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 8390541578736086081, guid: 05c0c72e120d34ed6ae18ac62226c4d2, type: 3}
   inventoryManager: {fileID: 0}
 --- !u!114 &2448840476126716644
 MonoBehaviour:
@@ -363,6 +363,7 @@ MonoBehaviour:
   objectTag: d
   canBeRemoved: 1
   parentRotation: {x: -90, y: 90, z: 90}
+  agnusCombination: {fileID: 0}
 --- !u!114 &2448840476126716645
 MonoBehaviour:
   m_ObjectHideFlags: 0
