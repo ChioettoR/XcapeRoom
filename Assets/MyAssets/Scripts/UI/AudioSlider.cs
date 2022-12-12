@@ -13,12 +13,10 @@ public class AudioSlider : MonoBehaviour
     public PinchSlider pinchSlider;
     public Interactable playButtonInteractable;
 
-    private bool isPaused = true;
-    private bool amMovingSlider = false;
-
     private void Awake()
     {
         pinchSlider.gameObject.SetActive(false);
+        pinchSlider.enabled = true;
     }
 
     public void ShowSlider(AudioClip audioClip)
@@ -36,52 +34,44 @@ public class AudioSlider : MonoBehaviour
 
     public void PlayAudio()
     {
-        isPaused = !isPaused;
+        pinchSlider.enabled = false;
 
-        if (!isPaused)
-        {
-            amMovingSlider = false;
-            playButton.sprite = pauseSprite;
-            audioSource.Play();
-        }
-        else
-        {
-            amMovingSlider = true;
-            playButton.sprite = playSprite;
-            audioSource.Pause();
-        }
+        playButton.sprite = pauseSprite;
+        audioSource.Play();
     }
 
-    public void AmMovingSlider(bool amMovingSlider)
+    public void PauseAudio()
     {
-        this.amMovingSlider = amMovingSlider;
+        pinchSlider.enabled = true;
+
+        playButton.sprite = playSprite;
+        audioSource.Pause();
+    }
+
+    public void SliderMoved()
+    {
+        if (!gameObject.activeSelf || audioSource.clip == null) return;
+
+        audioSource.time = Mathf.Min(pinchSlider.SliderValue * audioSource.clip.length, audioSource.clip.length - 0.01f);
     }
 
     private void Update()
     {
-        if (!pinchSlider.gameObject.activeSelf || audioSource.clip == null) return;
+        if (!gameObject.activeSelf || audioSource.clip == null) return;
 
-        float audioPercentage = audioSource.time / audioSource.clip.length;
-        if (!amMovingSlider)
-        {
-            pinchSlider.SliderValue = audioPercentage;
-        }
-        else
-        {
-            audioSource.time = Mathf.Min(pinchSlider.SliderValue * audioSource.clip.length, audioSource.clip.length - 0.01f);
-        }
-
-        if (pinchSlider.SliderValue == 1) Reset();
+        if (pinchSlider.SliderValue >= 0.99f) Reset();
+        else if (audioSource.isPlaying) pinchSlider.SliderValue = audioSource.time / audioSource.clip.length;
     }
 
     private void Reset()
     {
-        amMovingSlider = true;
-
+        pinchSlider.enabled = false;
         playButtonInteractable.IsToggled = false;
-        audioSource.time = 0;
-        pinchSlider.SliderValue = 0;
+
+        audioSource.Stop();
+        audioSource.time = pinchSlider.SliderValue = 0;
+        pinchSlider.enabled = true;
+
         playButton.sprite = playSprite;
-        isPaused = true;
     }
 }
