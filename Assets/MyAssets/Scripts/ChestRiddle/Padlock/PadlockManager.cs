@@ -11,6 +11,9 @@ public class PadlockManager : MonoBehaviour
     public BoundsControl chestBoundsControl;
     public GameObject riddleObject;
 
+    //DEMO
+    public DemoCanvasWin demoCanvasWin;
+
     private char[] currentCombination;
 
     private void Awake()
@@ -43,5 +46,8 @@ public class PadlockManager : MonoBehaviour
     {
         chestAnimator.enabled = false;
         chestBoundsControl.enabled = true;
+
+        //Da togliere
+        demoCanvasWin.PuzzleSolved();
     }
 }
