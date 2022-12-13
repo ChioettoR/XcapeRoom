@@ -24,6 +24,9 @@ public class AudioSlider : MonoBehaviour
         Reset();
         pinchSlider.gameObject.SetActive(true);
         audioSource.clip = audioClip;
+
+        playButtonInteractable.IsToggled = true;
+        PlayAudio();
     }
 
     public void HideSlider()

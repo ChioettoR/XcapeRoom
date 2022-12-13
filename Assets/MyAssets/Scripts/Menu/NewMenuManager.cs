@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Microsoft.MixedReality.Toolkit.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NewMenuManager : MonoBehaviour
 {
@@ -48,6 +49,12 @@ public class NewMenuManager : MonoBehaviour
         //DeactiveAllWindows();
 
         //tutorialWindow.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        string currentScene = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentScene);
     }
 
     public void OpenInventoryAndActiveSlots(PressableDockZone pressableDockZone)
