@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotationRange : MonoBehaviour
+public class ChestRotationRange : MonoBehaviour
 {
     public float minRotationX;
     public float maxRotationX;

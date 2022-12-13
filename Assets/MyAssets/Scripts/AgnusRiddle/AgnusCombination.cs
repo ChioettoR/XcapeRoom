@@ -14,9 +14,11 @@ public class AgnusCombination : MonoBehaviour
 
     private int currentCorrectPiecesNumber;
 
-   public void Correct()
+    public void Correct()
     {
         currentCorrectPiecesNumber++;
+        Debug.Log("CORRECT: " + currentCorrectPiecesNumber);
+
         if (currentCorrectPiecesNumber == correctPiecesNumber)
         {
             map.SetActive(true);
@@ -30,5 +32,6 @@ public class AgnusCombination : MonoBehaviour
     public void CorrectRemoved()
     {
         currentCorrectPiecesNumber--;
+        Debug.Log("CORRECT: " + currentCorrectPiecesNumber);
     }
 }
