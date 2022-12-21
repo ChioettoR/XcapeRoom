@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using Microsoft.MixedReality.Toolkit.UI;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AudioSlider : MonoBehaviour
 {
+    public UnityEvent unityEvent;
     public SpriteRenderer playButton;
     public AudioSource audioSource;
     public Sprite playSprite;
@@ -13,10 +15,18 @@ public class AudioSlider : MonoBehaviour
     public PinchSlider pinchSlider;
     public Interactable playButtonInteractable;
 
+    private static readonly List<AudioSlider> audioSliders = new List<AudioSlider>();
+
     private void Awake()
     {
+        audioSliders.Add(this);
         pinchSlider.gameObject.SetActive(false);
         pinchSlider.enabled = true;
+    }
+
+    private void OnDestroy()
+    {
+        audioSliders.Remove(this);
     }
 
     public void ShowSlider(AudioClip audioClip)
@@ -37,10 +47,18 @@ public class AudioSlider : MonoBehaviour
 
     public void PlayAudio()
     {
+        foreach (AudioSlider audioSlider in audioSliders) if (audioSlider != this) audioSlider.InterruptAudio();
+
         pinchSlider.enabled = false;
 
         playButton.sprite = pauseSprite;
         audioSource.Play();
+    }
+
+    public void InterruptAudio()
+    {
+        playButtonInteractable.IsToggled = false;
+        PauseAudio();
     }
 
     public void PauseAudio()
