@@ -13,6 +13,7 @@ public class NewMenuManager : MonoBehaviour
 
     public GameObject mainMenuWindow;
     public GameObject inventoryWindow;
+    public GameObject mapWindow;
     //public GameObject tutorialWindow;
 
     public void ActiveMenu()
@@ -40,6 +41,13 @@ public class NewMenuManager : MonoBehaviour
         DeactiveAllWindows();
 
         mainMenuWindow.SetActive(true);
+    }
+
+    public void OpenMap()
+    {
+        DeactiveAllWindows();
+
+        mapWindow.SetActive(true);
     }
 
     public void OpenTutorial()
