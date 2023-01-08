@@ -203,7 +203,7 @@ MonoBehaviour:
         Vector2: {x: 0, y: 0}
         Vector3: {x: 0, y: 0, z: 0}
         Vector4: {x: 0, y: 0, z: 0, w: 0}
-        Color: {r: 0.19490923, g: 0.23311368, b: 0.5660378, a: 0.078431375}
+        Color: {r: 0.19490923, g: 0.23311368, b: 0.5660378, a: 0.29411766}
         Quaternion: {x: 0, y: 0, z: 0, w: 0}
         AudioClip: {fileID: 0}
         Animation: {fileID: 0}
