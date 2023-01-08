@@ -10,6 +10,9 @@ public class NewInventorySlot : MonoBehaviour
 
     private bool available = true;
     private NewCollectableObject collectableObject;
+    private const float wrongObjectTypeTransitionDuration = 0.1f;
+    private const float wrongObjectTypeDuration = 0.05f;
+    private bool errorCoroutineRunning = false;
 
     public bool CheckAvailable()
     {
@@ -25,7 +28,35 @@ public class NewInventorySlot : MonoBehaviour
             newMenuManager.newInventoryManager.GetSelectedDockZone().InsertObject(collectableObject);
             RemoveInventoryObject();
         }
-        else Debug.Log("ERROR");
+        else if (!errorCoroutineRunning) StartCoroutine(SelectedWrongObjectTypeCoroutine());
+    }
+
+    IEnumerator SelectedWrongObjectTypeCoroutine()
+    {
+        errorCoroutineRunning = true;
+
+        Color initialColor = slotImage.color;
+
+        float time = 0f;
+        while (time < wrongObjectTypeTransitionDuration)
+        {
+            slotImage.color = Color.Lerp(initialColor, Color.red, time / wrongObjectTypeTransitionDuration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(wrongObjectTypeDuration);
+
+        time = 0f;
+        while (time < wrongObjectTypeTransitionDuration)
+        {
+            slotImage.color = Color.Lerp(Color.red, initialColor, time / wrongObjectTypeTransitionDuration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        slotImage.color = initialColor;
+        errorCoroutineRunning = false;
     }
 
     public void SetInventoryObject(NewCollectableObject collectableObject)

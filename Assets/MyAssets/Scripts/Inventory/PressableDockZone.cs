@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using Microsoft.MixedReality.Toolkit.UI;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PressableDockZone : MonoBehaviour
 {
     public NewMenuManager newMenuManager;
-    public AgnusCombination agnusCombination;
+    public UnityEvent placedCorrectEvent;
+    public UnityEvent removedCorrectEvent;
     public List<string> acceptedObjectsTag;
     public string correctObjectTag;
     public GameObject objectParent;
+    public bool canRemoveObject = true;
 
     private Interactable interactable;
 
@@ -45,13 +48,19 @@ public class PressableDockZone : MonoBehaviour
 
         collectableObject.SetPressableDockZone(this);
 
-        if(collectableObject.objectTag.Equals(correctObjectTag)) agnusCombination.Correct();
+        if (collectableObject.objectTag.Equals(correctObjectTag)) placedCorrectEvent.Invoke();
+
+        if (!canRemoveObject)
+        {
+            interactable.enabled = false;
+            collectableObject.GetComponent<Interactable>().enabled = false;
+        }
     }
 
     public void RemoveObject(NewCollectableObject collectableObject)
     {
         ActiveZone(true);
-        if (collectableObject.objectTag.Equals(correctObjectTag)) agnusCombination.CorrectRemoved();
+        if (collectableObject.objectTag.Equals(correctObjectTag)) removedCorrectEvent.Invoke();
     }
 
     public void ActiveZone(bool active)

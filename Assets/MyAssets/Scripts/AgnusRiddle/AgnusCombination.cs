@@ -7,7 +7,6 @@ public class AgnusCombination : MonoBehaviour
 {
     public int correctPiecesNumber;
     public List<Interactable> collectablePieces;
-    public GameObject map;
 
     private int currentCorrectPiecesNumber;
 
@@ -17,7 +16,6 @@ public class AgnusCombination : MonoBehaviour
 
         if (currentCorrectPiecesNumber == correctPiecesNumber)
         {
-            map.SetActive(true);
             foreach (Interactable interactable in collectablePieces) interactable.enabled = false;
         }
     }
