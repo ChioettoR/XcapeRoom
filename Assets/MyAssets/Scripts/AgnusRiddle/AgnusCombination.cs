@@ -7,6 +7,7 @@ public class AgnusCombination : MonoBehaviour
 {
     public int correctPiecesNumber;
     public List<Interactable> collectablePieces;
+    public Animator drawerAC;
 
     private int currentCorrectPiecesNumber;
 
@@ -17,6 +18,7 @@ public class AgnusCombination : MonoBehaviour
         if (currentCorrectPiecesNumber == correctPiecesNumber)
         {
             foreach (Interactable interactable in collectablePieces) interactable.enabled = false;
+            drawerAC.SetTrigger("OpenDrawer");
         }
     }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Microsoft.MixedReality.Toolkit.UI.BoundsControl;
+using Microsoft.MixedReality.Toolkit.UI;
 
 public class PadlockManager : MonoBehaviour
 {
@@ -10,12 +11,14 @@ public class PadlockManager : MonoBehaviour
     public Animator chestAnimator;
     public BoundsControl chestBoundsControl;
     public GameObject riddleObject;
+    public Interactable mapInteractable;
 
     private char[] currentCombination;
 
     private void Awake()
     {
         chestBoundsControl.enabled = false;
+        mapInteractable.enabled = false;
 
         currentCombination = new char[combination.Length];
         for (int i = 0; i < padlocks.Count; i++) currentCombination[i] = padlocks[i].charsOrder[0];
@@ -43,5 +46,6 @@ public class PadlockManager : MonoBehaviour
     {
         chestAnimator.enabled = false;
         chestBoundsControl.enabled = true;
+        mapInteractable.enabled = true;
     }
 }
