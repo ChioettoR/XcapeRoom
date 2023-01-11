@@ -28758,8 +28758,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2054690184}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: 0.000006}
-  m_LocalScale: {x: 1, y: 1, z: 3.4261}
+  m_LocalPosition: {x: 0, y: 0, z: -0.000081}
+  m_LocalScale: {x: 1.01, y: 1.01, z: 3.460361}
   m_Children: []
   m_Father: {fileID: 741913232}
   m_RootOrder: 0
@@ -28794,7 +28794,19 @@ MonoBehaviour:
         m_CallState: 2
   removedCorrectEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9126723526745640567}
+        m_TargetAssemblyTypeName: GobletHolderFinal, Assembly-CSharp
+        m_MethodName: GobletRemoved
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   acceptedObjectsTag:
   - goblet
   correctObjectTag: goblet
@@ -31169,7 +31181,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a600d97161d6c4dddba6486cc62c3c7c, type: 2}
+  - {fileID: 2100000, guid: 40245e5c65b1f41aaa9ce96bebbd67b5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -32504,7 +32516,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a600d97161d6c4dddba6486cc62c3c7c, type: 2}
+  - {fileID: 2100000, guid: 40245e5c65b1f41aaa9ce96bebbd67b5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -34526,7 +34538,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a600d97161d6c4dddba6486cc62c3c7c, type: 2}
+  - {fileID: 2100000, guid: 40245e5c65b1f41aaa9ce96bebbd67b5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -34966,6 +34978,7 @@ MonoBehaviour:
   drawerAC: {fileID: 9126723526745640566}
   gobletFiller: {fileID: 919132148469329500}
   gobletInteractable: {fileID: 919132148469329495}
+  gobletStandInteractable: {fileID: 2054690187}
 --- !u!4 &9213277443624615408
 Transform:
   m_ObjectHideFlags: 0
