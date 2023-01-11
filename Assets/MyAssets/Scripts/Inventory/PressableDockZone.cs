@@ -13,6 +13,7 @@ public class PressableDockZone : MonoBehaviour
     public string correctObjectTag;
     public GameObject objectParent;
     public bool canRemoveObject = true;
+    public bool setParent = false;
 
     private Interactable interactable;
 
@@ -43,6 +44,8 @@ public class PressableDockZone : MonoBehaviour
     {
         collectableObject.gameObject.transform.SetPositionAndRotation(objectParent.transform.position, objectParent.transform.rotation);
         collectableObject.gameObject.SetActive(true);
+
+        if (setParent) collectableObject.transform.parent = objectParent.transform;
 
         ActiveZone(false);
 

@@ -11,11 +11,17 @@ public class GobletFiller : MonoBehaviour
     public float emptyFillAmount;
     public float fullTime;
 
+    private bool filled = false;
+
     void Start()
     {
         rend.material.SetFloat("_FillAmount", emptyFillAmount);
     }
 
+    public bool CheckFilled()
+    {
+        return filled;
+    }
 
     public void Fill()
     {
@@ -33,5 +39,6 @@ public class GobletFiller : MonoBehaviour
             yield return null;
         }
         gobletInteractable.enabled = true;
+        filled = true;
     }
 }
