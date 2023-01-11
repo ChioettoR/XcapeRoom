@@ -7,7 +7,7 @@
 * 
 *****************************************************************************/
 
-namespace NRKernal.Experimental.NRExamples
+namespace NRKernal.Beta.NRExamples
 {
     using UnityEngine;
 

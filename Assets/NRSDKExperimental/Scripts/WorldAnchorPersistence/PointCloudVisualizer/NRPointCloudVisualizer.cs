@@ -7,7 +7,7 @@
 * 
 *****************************************************************************/
 
-namespace NRKernal.Experimental.Persistence
+namespace NRKernal.Beta.Persistence
 {
     using System.Collections.Generic;
     using System.Linq;

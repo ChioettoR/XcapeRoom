@@ -9,7 +9,7 @@
 
 using UnityEngine;
 
-namespace NRKernal.Experimental.NRExamples
+namespace NRKernal.Beta.NRExamples
 {
     /// <summary> A switch plane detect. </summary>
     public class SwitchPlaneDetect : MonoBehaviour

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace NRKernal.Experimental.NRExamples
+namespace NRKernal.Beta.NRExamples
 {
     /// <summary> A render standlone. </summary>
     public class RenderStandlone : MonoBehaviour

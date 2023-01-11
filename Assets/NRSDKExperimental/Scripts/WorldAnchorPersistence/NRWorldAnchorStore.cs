@@ -7,7 +7,7 @@
 * 
 *****************************************************************************/
 
-namespace NRKernal.Experimental.Persistence
+namespace NRKernal.Beta.Persistence
 {
     using System;
     using System.Collections;
@@ -173,17 +173,6 @@ namespace NRKernal.Experimental.Persistence
             m_Anchor2ObjectDict.Clear();
 
             this.Save();
-        }
-
-        /// <summary> Reset </summary>
-        /// <returns> True if it succeeds, false if it fails. </returns>
-        public bool Reset()
-        {
-#if !UNITY_EDITOR
-            return m_NativeMapping.Reset();
-#else
-            return true;
-#endif
         }
 
         /// <summary> Deletes a persisted NRWorldAnchor from the store. </summary>

@@ -7,7 +7,7 @@
 * 
 *****************************************************************************/
 
-namespace NRKernal.Experimental.StreammingCast
+namespace NRKernal.Beta.StreammingCast
 {
     using NRKernal.Record;
     using UnityEngine;
@@ -58,7 +58,6 @@ namespace NRKernal.Experimental.StreammingCast
             m_Encoder = encoder;
 
             m_TargetCamera.enabled = true;
-            // As the texture will be used to blend with physical camera image, the alpha channel need to be 0. 
             m_TargetCamera.backgroundColor = new Color(0, 0, 0, 0);
             m_TargetCamera.targetTexture = UnityExtendedUtility.CreateRenderTexture(Width, Height, 24, RenderTextureFormat.ARGB32);
             m_TargetCamera.depthTextureMode = DepthTextureMode.Depth;

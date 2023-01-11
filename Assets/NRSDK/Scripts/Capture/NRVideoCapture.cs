@@ -320,6 +320,7 @@ namespace NRKernal.Record
                     m_CaptureContext.StopCapture();
                     IsRecording = false;
                     result.resultType = CaptureResultType.Success;
+                    Debug.Log("Result: " + result.resultType.ToString());
                     onStoppedRecordingVideoCallback?.Invoke(result);
                 }
                 catch (Exception)
@@ -423,5 +424,6 @@ namespace NRKernal.Record
         /// <param name="result"> Indicates whether or not video recording was saved successfully to the
         ///                       file system.</param>
         public delegate void OnStoppedRecordingVideoCallback(VideoCaptureResult result);
+
     }
 }

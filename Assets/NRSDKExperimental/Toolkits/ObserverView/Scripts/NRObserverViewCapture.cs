@@ -7,7 +7,7 @@
 * 
 *****************************************************************************/
 
-namespace NRKernal.Experimental.StreammingCast
+namespace NRKernal.Beta.StreammingCast
 {
     using UnityEngine;
     using NRKernal.Record;
@@ -35,9 +35,11 @@ namespace NRKernal.Experimental.StreammingCast
         {
             get
             {
+#if !UNITY_EDITOR
+                NativeResolution rgbResolution = NRFrame.GetDeviceResolution(NativeDevice.RGB_CAMERA);
+#else
                 NativeResolution rgbResolution = new NativeResolution(1280, 720);
-                if (NRDevice.Subsystem.IsFeatureSupported(NRSupportedFeature.NR_FEATURE_RGB_CAMERA))
-                    rgbResolution = NRFrame.GetDeviceResolution(NativeDevice.RGB_CAMERA);
+#endif
                 Resolution stand_resolution = new Resolution()
                 {
                     width = rgbResolution.width,
@@ -122,19 +124,9 @@ namespace NRKernal.Experimental.StreammingCast
         /// <param name="setupParams">                Options for controlling the setup.</param>
         /// <param name="audioState">                 State of the audio.</param>
         /// <param name="onVideoModeStartedCallback"> The on video mode started callback.</param>
-        public void StartObserverViewModeAsync(CameraParameters setupParams, AudioState audioState, OnObserverViewModeStartedCallback onVideoModeStartedCallback, bool autoAdaptBlendMode = false)
+        public void StartObserverViewModeAsync(CameraParameters setupParams, AudioState audioState, OnObserverViewModeStartedCallback onVideoModeStartedCallback)
         {
             setupParams.camMode = CamMode.VideoMode;
-            
-            if (autoAdaptBlendMode)
-            {
-                var blendMode = m_CaptureContext.AutoAdaptBlendMode(setupParams.blendMode);
-                if (blendMode != setupParams.blendMode)
-                {
-                    NRDebugger.Warning("[VideoCapture] AutoAdaptBlendMode : {0} => {1}", setupParams.blendMode, blendMode);
-                    setupParams.blendMode = blendMode;
-                }
-            }
             m_CaptureContext.StartCaptureMode(setupParams);
             var result = new ObserverViewCaptureResult();
             result.resultType = CaptureResultType.Success;

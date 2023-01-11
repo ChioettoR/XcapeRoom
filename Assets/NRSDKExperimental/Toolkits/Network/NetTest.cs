@@ -1,5 +1,5 @@
 ﻿using NRKernal;
-using NRKernal.Experimental.NetWork;
+using NRKernal.Beta.NetWork;
 using UnityEngine;
 
 /// <summary> A net test. </summary>

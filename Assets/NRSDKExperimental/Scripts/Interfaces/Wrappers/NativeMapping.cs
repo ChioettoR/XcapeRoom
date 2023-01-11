@@ -7,7 +7,7 @@
 * 
 *****************************************************************************/
 
-namespace NRKernal.Experimental
+namespace NRKernal.Beta
 {
     using System;
     using System.Runtime.InteropServices;
@@ -64,15 +64,6 @@ namespace NRKernal.Experimental
         {
             var result = NativeApi.NRWorldMapDatabaseSaveFile(m_NativeInterface.TrackingHandle, m_DatabaseHandle, path);
             NativeErrorListener.Check(result, this, "SaveMap");
-            return result == NativeResult.Success;
-        }
-
-        /// <summary> Reset Map </summary>
-        /// <returns> True if it succeeds, false if it fails. </returns>
-        public bool Reset()
-        {
-            var result = NativeApi.NRMappingReset(m_NativeInterface.TrackingHandle);
-            NativeErrorListener.Check(result, this, "Reset");
             return result == NativeResult.Success;
         }
 
@@ -223,12 +214,6 @@ namespace NRKernal.Experimental
             [DllImport(NativeConstants.NRNativeLibrary)]
             public static extern NativeResult NRWorldMapDatabaseSaveFile(UInt64 tracking_handle,
                 UInt64 world_map_database_handle, string world_map_database_file_path);
-
-            /// <summary> Reset Map </summary>
-            /// <param name="tracking_handle">  Handle of the tracking.</param>
-            /// <returns>   A NativeResult. </returns>
-            [DllImport(NativeConstants.NRNativeLibrary)]
-            public static extern NativeResult NRMappingReset(UInt64 tracking_handle);
 
             /// <summary> NRTracking. </summary>
             /// <param name="tracking_handle">   Handle of the tracking.</param>

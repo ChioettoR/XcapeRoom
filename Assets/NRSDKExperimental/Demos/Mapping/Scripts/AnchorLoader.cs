@@ -7,9 +7,9 @@
 * 
 *****************************************************************************/
 
-namespace NRKernal.Experimental.NRExamples
+namespace NRKernal.Beta.NRExamples
 {
-    using NRKernal.Experimental.Persistence;
+    using NRKernal.Beta.Persistence;
     using UnityEngine;
 
     [RequireComponent(typeof(ImageTrackingAnchorTool))]

@@ -7,7 +7,7 @@
 * 
 *****************************************************************************/
 
-namespace NRKernal.Experimental.NetWork
+namespace NRKernal.Beta.NetWork
 {
     using System;
     using System.Collections.Generic;

@@ -7,7 +7,7 @@
 * 
 *****************************************************************************/
 
-namespace NRKernal.Experimental
+namespace NRKernal.Beta
 {
     /// <summary> Values that represent native render modes. </summary>
     public enum NativeRenderMode

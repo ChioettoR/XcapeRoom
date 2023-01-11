@@ -7,13 +7,12 @@
 * 
 *****************************************************************************/
 
-namespace NRKernal.Experimental.StreammingCast
+namespace NRKernal.Beta.StreammingCast
 {
     using System.IO;
     using UnityEngine;
     using UnityEngine.UI;
     using UnityEngine.Events;
-    using NRKernal.NRExamples;
 
     /// <summary> A configuration view. </summary>
     public class ObserverConfigView : MonoBehaviour

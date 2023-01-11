@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace NRKernal.Experimental.StreammingCast
+namespace NRKernal.Beta.StreammingCast
 {
     [RequireComponent(typeof(Collider))]
     public class SettingRegionTrigger : MonoBehaviour

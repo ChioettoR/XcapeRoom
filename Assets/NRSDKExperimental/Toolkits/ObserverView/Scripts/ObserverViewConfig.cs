@@ -7,7 +7,7 @@
 * 
 *****************************************************************************/
 
-namespace NRKernal.Experimental.StreammingCast
+namespace NRKernal.Beta.StreammingCast
 {
     using UnityEngine;
 
@@ -30,11 +30,6 @@ namespace NRKernal.Experimental.StreammingCast
             this.serverIP = serverip;
             this.useDebugUI = usedebug;
             this.offset = offset;
-        }
-
-        public override string ToString()
-        {
-            return serverIP;
         }
     }
 }

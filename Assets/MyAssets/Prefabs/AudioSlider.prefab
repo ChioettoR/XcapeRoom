@@ -455,6 +455,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 512021cbf622e4517ba687dbf8d5faed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls: []
   playButton: {fileID: 4726891875521380002}
   audioSource: {fileID: 2185545994926736295}
   playSprite: {fileID: 21300000, guid: dcc5e448a718c4ac8a92b36018bc2561, type: 3}
@@ -470,7 +473,8 @@ AudioSource:
   m_GameObject: {fileID: 3370372787339832604}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 19d4eb330c25d40668da451475bfc594,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1

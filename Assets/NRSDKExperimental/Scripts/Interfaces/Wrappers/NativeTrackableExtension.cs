@@ -9,7 +9,7 @@
 * 
 *****************************************************************************/
 
-namespace NRKernal.Experimental
+namespace NRKernal.Beta
 {
     //using System;
     //using System.Runtime.InteropServices;

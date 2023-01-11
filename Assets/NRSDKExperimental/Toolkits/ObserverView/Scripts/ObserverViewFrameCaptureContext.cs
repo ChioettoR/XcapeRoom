@@ -7,7 +7,7 @@
 * 
 *****************************************************************************/
 
-namespace NRKernal.Experimental.StreammingCast
+namespace NRKernal.Beta.StreammingCast
 {
     using NRKernal.Record;
     using System;
@@ -102,17 +102,6 @@ namespace NRKernal.Experimental.StreammingCast
             this.m_IsInitialized = true;
         }
 
-        /// <summary> Auto adaption for BlendMode based on supported feature on current device. </summary>
-        /// <param name="blendMode"> source blendMode.</param>
-        /// <returns> Fallback blendMode. </returns>
-        public BlendMode AutoAdaptBlendMode(BlendMode blendMode)
-        {
-            if (!NRDevice.Subsystem.IsFeatureSupported(NRSupportedFeature.NR_FEATURE_RGB_CAMERA))
-                return BlendMode.VirtualOnly;
-                
-            return blendMode;
-        }
-
         private ObserverViewFrameCaptureContext Sequence(IFrameConsumer consummer)
         {
             this.m_FrameConsumerList.Add(consummer);
@@ -161,7 +150,7 @@ namespace NRKernal.Experimental.StreammingCast
                 callback?.Invoke(false);
                 return;
             }
-            NRDebugger.Info("[CaptureContext] Start... {0}", ip);
+            NRDebugger.Info("[CaptureContext] Start...");
             ((VideoEncoder)m_Encoder).EncodeConfig.SetOutPutPath(string.Format("rtp://{0}:5555", ip));
             m_NetWorker.CheckServerAvailable(ip, (result) =>
             {

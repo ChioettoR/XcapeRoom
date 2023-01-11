@@ -7,7 +7,7 @@
 * 
 *****************************************************************************/
 
-namespace NRKernal.Experimental
+namespace NRKernal.Beta
 {
     using NRKernal;
     using System;

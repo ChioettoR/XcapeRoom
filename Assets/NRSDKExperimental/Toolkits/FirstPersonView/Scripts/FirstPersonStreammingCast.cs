@@ -7,13 +7,13 @@
 * 
 *****************************************************************************/
 
-namespace NRKernal.Experimental.StreammingCast
+namespace NRKernal.Beta.StreammingCast
 {
     using NRKernal.Record;
     using System.Linq;
     using UnityEngine;
     using System;
-    using NRKernal.Experimental.NetWork;
+    using NRKernal.Beta.NetWork;
     using System.IO;
     using System.Collections;
 
@@ -248,7 +248,7 @@ namespace NRKernal.Experimental.StreammingCast
                         bool result;
                         if (bool.TryParse(response["success"].ToString(), out result) && result)
                         {
-                            m_VideoCapture.StartVideoModeAsync(cameraParameters, OnStartedVideoCaptureMode, true);
+                            m_VideoCapture.StartVideoModeAsync(cameraParameters, OnStartedVideoCaptureMode);
                         }
                         else
                         {
@@ -258,7 +258,7 @@ namespace NRKernal.Experimental.StreammingCast
                 }
                 else
                 {
-                    m_VideoCapture.StartVideoModeAsync(cameraParameters, OnStartedVideoCaptureMode, true);
+                    m_VideoCapture.StartVideoModeAsync(cameraParameters, OnStartedVideoCaptureMode);
                 }
             }
             else
@@ -288,7 +288,7 @@ namespace NRKernal.Experimental.StreammingCast
             NRDebugger.Info("[FPStreammingCast] Started Video Capture Mode!");
             m_VideoCapture.StartRecordingAsync(m_IsStreamStarted ? RTPPath : VideoSavePath, OnStartedRecordingVideo);
             m_VideoCapture.GetContext().GetBehaviour().CaptureCamera.cullingMask = m_CullingMask.value;
-            m_VideoCapture.GetContext().GetBehaviour().CaptureCamera.backgroundColor = useGreenBackGround ? Color.green : Color.black;
+            m_VideoCapture.GetContext().GetBehaviour().CaptureCamera.backgroundColor = useGreenBackGround ? new Color(0, 1, 0, 0) : new Color(0, 0, 0, 0);
         }
 
         /// <summary> Executes the 'stopped video capture mode' action. </summary>

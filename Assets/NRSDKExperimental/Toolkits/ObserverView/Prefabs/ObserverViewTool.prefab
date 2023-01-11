@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4306783984731378}
   - component: {fileID: 65527271537054596}
-  - component: {fileID: 114487890387155628}
+  - component: {fileID: 114310899848326750}
   m_Layer: 0
   m_Name: CloseButton
   m_TagString: Untagged
@@ -409,6 +409,32 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Show Debug Info
+--- !u!114 &114310899848326750
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1066777990782272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f5ae42a61d0ea140ad3d94ca46bcfec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onPointerClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onPointerEnter:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onPointerOut:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114363556721976692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -422,7 +448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IPField: {fileID: 114134209521350086}
   m_UseDebug: {fileID: 114493094811223712}
-  m_CloseBtn: {fileID: 114487890387155628}
+  m_CloseBtn: {fileID: 114310899848326750}
   m_Root: {fileID: 224674412174663792}
 --- !u!114 &114402103039337256
 MonoBehaviour:
@@ -463,32 +489,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114487890387155628
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1066777990782272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91140b6176cd2cb448b41c07d3da4c85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onPointerClick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onPointerEnter:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onPointerOut:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114493094811223712
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -7,9 +7,9 @@
 * 
 *****************************************************************************/
 
-namespace NRKernal.Experimental.StreammingCast
+namespace NRKernal.Beta.StreammingCast
 {
-    using NRKernal.Experimental.NetWork;
+    using NRKernal.Beta.NetWork;
 
     /// <summary> An observer view net worker. </summary>
     public class ObserverViewNetWorker : NetWorkBehaviour

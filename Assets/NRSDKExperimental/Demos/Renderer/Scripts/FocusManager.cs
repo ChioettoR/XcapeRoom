@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class FocusManager : MonoBehaviour
 {
+    public Text m_TipsInfo;
     private Transform m_HeadTransfrom;
     private Vector3 m_FocusPosition;
     RaycastHit hitResult;
@@ -13,8 +14,8 @@ public class FocusManager : MonoBehaviour
     {
         m_HeadTransfrom = NRSessionManager.Instance.CenterCameraAnchor;
 
-        //NRInput.ReticleVisualActive = false;
-        //NRInput.LaserVisualActive = false;
+        NRInput.ReticleVisualActive = false;
+        NRInput.LaserVisualActive = false;
     }
 
     private System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
@@ -52,6 +53,8 @@ public class FocusManager : MonoBehaviour
         }
         stopwatch.Reset();
         stopwatch.Start();
+
+        m_TipsInfo.text = string.Format("Depth:{0}", m_FocusPosition.z);
     }
 
     void OnDrawGizmos()

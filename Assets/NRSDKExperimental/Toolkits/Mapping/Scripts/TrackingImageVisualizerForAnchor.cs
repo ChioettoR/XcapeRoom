@@ -11,7 +11,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace NRKernal.Experimental.Persistence
+namespace NRKernal.Beta.Persistence
 {
     /// <summary>
     /// Uses 4 frame corner objects to visualize an TrackingImage.

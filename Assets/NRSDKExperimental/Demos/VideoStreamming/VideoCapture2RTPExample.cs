@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace NRKernal.Experimental.NRExamples
+namespace NRKernal.Beta.NRExamples
 {
     /// <summary> A video capture 2 rtp example. </summary>
     [HelpURL("https://developer.nreal.ai/develop/unity/video-capture")]
@@ -88,7 +88,7 @@ namespace NRKernal.Experimental.NRExamples
                 cameraParameters.pixelFormat = CapturePixelFormat.BGRA32;
                 cameraParameters.blendMode = BlendMode.Blend;
 
-                m_VideoCapture.StartVideoModeAsync(cameraParameters, OnStartedVideoCaptureMode, true);
+                m_VideoCapture.StartVideoModeAsync(cameraParameters, OnStartedVideoCaptureMode);
             }
 
         }

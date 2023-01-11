@@ -7,13 +7,13 @@
 * 
 *****************************************************************************/
 
-namespace NRKernal.Experimental.StreammingCast
+namespace NRKernal.Beta.StreammingCast
 {
     using UnityEngine;
     using NRKernal.Record;
     using System.Linq;
-    using NRKernal.Experimental.Persistence;
-    using NRKernal.Experimental.NetWork;
+    using NRKernal.Beta.Persistence;
+    using NRKernal.Beta.NetWork;
 
     [RequireComponent(typeof(ImageTrackingAnchorTool))]
     public class ObserverViewer : MonoBehaviour
@@ -140,7 +140,7 @@ namespace NRKernal.Experimental.StreammingCast
 
                 m_ObserverCapture.StartObserverViewModeAsync(cameraParameters,
                     NRObserverViewCapture.AudioState.ApplicationAndMicAudio,
-                    OnStartedVideoCaptureMode, true);
+                    OnStartedVideoCaptureMode);
             }
         }
 

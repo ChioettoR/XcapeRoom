@@ -7,13 +7,13 @@
 * 
 *****************************************************************************/
 
-using NRKernal.Experimental.Persistence;
+using NRKernal.Beta.Persistence;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace NRKernal.Experimental.NRExamples
+namespace NRKernal.Beta.NRExamples
 {
     /// <summary> A local map example. </summary>
     public class LocalMapExample : MonoBehaviour
@@ -157,12 +157,6 @@ namespace NRKernal.Experimental.NRExamples
             }
             m_NRWorldAnchorStore.Clear();
             m_LogStr.AppendLine("Clear map anchor");
-        }
-
-        public void Reset()
-        {
-            m_NRWorldAnchorStore?.Reset();
-            m_LogStr.AppendLine("Reset map");
         }
 
         /// <summary> Add a new anchor. </summary>
