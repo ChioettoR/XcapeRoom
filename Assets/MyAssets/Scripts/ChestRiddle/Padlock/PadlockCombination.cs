@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.MixedReality.Toolkit.UI;
 using Microsoft.MixedReality.Toolkit.UI.BoundsControl;
 using UnityEngine;
 
@@ -12,12 +13,20 @@ public class PadlockCombination : MonoBehaviour
     private Vector3 initialPosition;
     private char charSelected;
     private BoundsControl boundsControl;
+    private Interactable padlockInteractable;
 
     private void Awake()
     {
+        padlockInteractable = GetComponent<Interactable>();
         boundsControl = GetComponent<BoundsControl>();
         charSelected = charsOrder[0];
         initialPosition = transform.forward;
+    }
+
+    public void OnClick()
+    {
+        transform.Rotate(Vector3.right, charsAngleOffset);
+        CalculateChar();
     }
 
     public char GetCharSelected()
@@ -28,6 +37,7 @@ public class PadlockCombination : MonoBehaviour
     public void StopManipulation()
     {
         boundsControl.enabled = false;
+        padlockInteractable.enabled = false;
     }
 
     public void CalculateChar()
