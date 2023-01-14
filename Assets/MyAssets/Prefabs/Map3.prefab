@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45fbc16a8b2014b10b92ef7cba132bb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectTag: map3
+  objectTag: map
   sprite: {fileID: 21300000, guid: 3795c4f5053f34870b538651d407b78b, type: 3}
   newInventoryManager: {fileID: 0}
 --- !u!65 &2015563129579656670

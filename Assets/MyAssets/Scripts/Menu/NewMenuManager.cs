@@ -7,9 +7,9 @@ using UnityEngine.SceneManagement;
 public class NewMenuManager : MonoBehaviour
 {
     public NewInventoryManager newInventoryManager;
+    public MenuPinManager menuPinManager;
     public List<GameObject> windows;
     public Interactable pinInteractable;
-    public FollowMeToggle followMeToggle;
 
     public GameObject mainMenuWindow;
     public GameObject inventoryWindow;
@@ -21,7 +21,7 @@ public class NewMenuManager : MonoBehaviour
         if (pinInteractable.IsToggled)
         {
             pinInteractable.IsToggled = false;
-            followMeToggle.ToggleFollowMeBehavior();
+            menuPinManager.PinDeactive();
         }
 
         OpenMainMenu();
@@ -41,6 +41,7 @@ public class NewMenuManager : MonoBehaviour
         DeactiveAllWindows();
 
         mainMenuWindow.SetActive(true);
+        if (pinInteractable.IsToggled) menuPinManager.ShowBoundsControls(true);
     }
 
     public void OpenMap()
@@ -48,6 +49,7 @@ public class NewMenuManager : MonoBehaviour
         DeactiveAllWindows();
 
         mapWindow.SetActive(true);
+        if (pinInteractable.IsToggled) menuPinManager.ShowBoundsControls(true);
     }
 
     public void OpenTutorial()
@@ -57,12 +59,7 @@ public class NewMenuManager : MonoBehaviour
         //DeactiveAllWindows();
 
         //tutorialWindow.SetActive(true);
-    }
-
-    public void RestartGame()
-    {
-        string currentScene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(currentScene);
+        if (pinInteractable.IsToggled) menuPinManager.ShowBoundsControls(true);
     }
 
     public void OpenInventoryAndActiveSlots(PressableDockZone pressableDockZone)
@@ -78,6 +75,7 @@ public class NewMenuManager : MonoBehaviour
         DeactiveAllWindows();
 
         inventoryWindow.SetActive(true);
+        if (pinInteractable.IsToggled) menuPinManager.ShowBoundsControls(true);
         newInventoryManager.ActiveInteractables(activeSlots);
     }
 
