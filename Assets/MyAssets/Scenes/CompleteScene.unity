@@ -5586,7 +5586,7 @@ MonoBehaviour:
   objectParent: {fileID: 1195801525}
   canRemoveObject: 0
   setParent: 1
-  resetScale: 0
+  resetScale: 1
 --- !u!114 &406670387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21567,7 +21567,7 @@ MonoBehaviour:
   objectParent: {fileID: 1195801525}
   canRemoveObject: 0
   setParent: 1
-  resetScale: 0
+  resetScale: 1
 --- !u!114 &1202801620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23724,7 +23724,7 @@ MonoBehaviour:
   objectParent: {fileID: 1195801525}
   canRemoveObject: 0
   setParent: 1
-  resetScale: 0
+  resetScale: 1
 --- !u!1 &1348633356
 GameObject:
   m_ObjectHideFlags: 0
