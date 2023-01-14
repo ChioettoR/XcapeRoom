@@ -53,13 +53,13 @@ public class PressableDockZone : MonoBehaviour
 
         collectableObject.SetPressableDockZone(this);
 
-        if (collectableObject.objectTag.Equals(correctObjectTag)) placedCorrectEvent.Invoke();
-
         if (!canRemoveObject)
         {
             interactable.enabled = false;
             collectableObject.GetComponent<Interactable>().enabled = false;
         }
+
+        if (collectableObject.objectTag.Equals(correctObjectTag)) placedCorrectEvent.Invoke();
     }
 
     public void RemoveObject(NewCollectableObject collectableObject)
