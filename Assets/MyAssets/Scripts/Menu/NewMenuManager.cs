@@ -14,7 +14,7 @@ public class NewMenuManager : MonoBehaviour
     public GameObject mainMenuWindow;
     public GameObject inventoryWindow;
     public GameObject mapWindow;
-    //public GameObject tutorialWindow;
+    public GameObject tutorialWindow;
 
     public void ActiveMenu()
     {
@@ -54,17 +54,15 @@ public class NewMenuManager : MonoBehaviour
 
     public void OpenTutorial()
     {
-        //TODO: da implementare
+        DeactiveAllWindows();
 
-        //DeactiveAllWindows();
-
-        //tutorialWindow.SetActive(true);
+        tutorialWindow.SetActive(true);
         if (pinInteractable.IsToggled) menuPinManager.ShowBoundsControls(true);
     }
 
     public void OpenInventoryAndActiveSlots(PressableDockZone pressableDockZone)
     {
-        gameObject.SetActive(true);
+        if(!gameObject.activeSelf) ActiveMenu();
 
         newInventoryManager.SetSelectedDockZone(pressableDockZone);
         OpenInventory(true);
