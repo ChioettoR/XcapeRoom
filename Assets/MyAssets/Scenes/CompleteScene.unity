@@ -29329,7 +29329,7 @@ MonoBehaviour:
   resolutionLevel: 0
   cullingMask:
     serializedVersion: 2
-    m_Bits: 2871
+    m_Bits: 119
   audioState: 1
   useGreenBackGround: 0
 --- !u!4 &1623702327
